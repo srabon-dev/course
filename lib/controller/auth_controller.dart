@@ -14,7 +14,7 @@ class AuthController extends GetxController{
 
   //Login Section
   TextEditingController loginEmailController = TextEditingController();
-  TextEditingController loginpasswordController = TextEditingController();
+  TextEditingController loginPasswordController = TextEditingController();
   bool isLoginLoading = false;
 
   //Reset Password Section
@@ -70,7 +70,7 @@ class AuthController extends GetxController{
     try{
       UserCredential response = await authServices.signInWithEmailAndPassword(
           email: loginEmailController.text.trim(),
-          password: loginpasswordController.text.trim()
+          password: loginPasswordController.text.trim()
       );
       if(response.user?.email != null){
         isLoginLoading = false;

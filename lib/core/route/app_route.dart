@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:interactive/view/screen/auth/forget/forget_screen.dart';
 import 'package:interactive/view/screen/auth/login/login_screen.dart';
 import 'package:interactive/view/screen/auth/register/register_screen.dart';
+import 'package:interactive/view/screen/course/course_screen.dart';
+import 'package:interactive/view/screen/course_player/course_player_screen.dart';
 import 'package:interactive/view/screen/home/home_screen.dart';
 import 'package:interactive/view/screen/splash/splash_screen.dart';
 
@@ -11,6 +13,8 @@ class AppRoute{
   static const String loginScreen = "/login_screen";
   static const String registerScreen = "/register_screen";
   static const String forgetScreen = "/forget_screen";
+  static const String courseScreen = "/course_screen";
+  static const String coursePlayerScreen = "/course_player_screen";
 
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -18,6 +22,8 @@ class AppRoute{
     GetPage(name: loginScreen, page: () => const LoginScreen()),
     GetPage(name: registerScreen, page: () => const RegisterScreen()),
     GetPage(name: forgetScreen, page: () => const ForgetScreen()),
+    GetPage(name: courseScreen, page: () => const CourseScreen()),
+    GetPage(name: coursePlayerScreen, page: () =>  YourWidget()),
   ];
 }
 

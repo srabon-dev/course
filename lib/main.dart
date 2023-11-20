@@ -25,6 +25,10 @@ class MyApp extends StatelessWidget {
       transitionDuration: const Duration(milliseconds: 200),
       initialRoute: AppRoute.splashScreen,
       navigatorKey: Get.key,
+      theme: ThemeData(
+        primaryColor: AppColors.green100,
+        primarySwatch: Colors.green,
+      ),
       getPages: AppRoute.routes
     );
   }

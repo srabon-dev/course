@@ -23,7 +23,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     Get.put(AuthController(authServices: Get.find()));
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

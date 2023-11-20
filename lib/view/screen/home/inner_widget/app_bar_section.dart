@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:interactive/core/route/app_route.dart';
 import 'package:interactive/model/user_model.dart';
 import 'package:interactive/utils/app_color.dart';
 
@@ -14,7 +17,7 @@ class AppBarSection extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15)),
+        borderRadius: const BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15)),
         border: Border.all(color: AppColors.pink20),
       ),
       child: FutureBuilder<DocumentSnapshot>(
@@ -50,10 +53,44 @@ class AppBarSection extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium,
             ),
             subtitle: Text(userModel.email??""),
-            trailing: const Icon(
-              Icons.notifications_rounded,
-              size: 25,
-              color: AppColors.black100,
+            trailing: GestureDetector(
+              onTap: () => showDialog(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('LogOut'),
+                  content:
+                  const Text('Are you sure, do you want to logout?'),
+                  actionsAlignment: MainAxisAlignment.spaceBetween,
+                  actionsPadding: const EdgeInsets.symmetric(
+                      vertical: 10, horizontal: 20),
+                  actions: [
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width / 3),
+                      child: ElevatedButton(
+                        onPressed: () => Get.back(),
+                        child: const Text("Cancel"),
+                      ),
+                    ),
+                    SizedBox(
+                      width: (MediaQuery.of(context).size.width / 3),
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          try {
+                            FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+                            await firebaseAuth.signOut();
+                            Fluttertoast.showToast(msg: 'LogOut Successful');
+                            Get.offAndToNamed(AppRoute.loginScreen);
+                          } catch (error) {
+                            Fluttertoast.showToast(msg: "Error LogOut");
+                          }
+                        },
+                        child: Text("Logout".tr),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              child: const Icon(Icons.logout),
             ),
           );
         },
