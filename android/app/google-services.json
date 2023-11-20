@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686403495539",
+    "project_id": "myprojectinteractive",
+    "storage_bucket": "myprojectinteractive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686403495539:android:a7737a8a1f401724226c06",
+        "android_client_info": {
+          "package_name": "com.srabon_dev.interactive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrGUMJV3cx-Xo_UscSrgcO2f3qWFzbe_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
