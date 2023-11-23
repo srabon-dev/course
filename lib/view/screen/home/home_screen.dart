@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:interactive/controller/home_controller.dart';
 import 'package:interactive/model/course_model.dart';
+import 'package:interactive/utils/app_string.dart';
 import 'package:interactive/view/screen/home/inner_widget/course_list_section.dart';
 import 'inner_widget/app_bar_section.dart';
 
@@ -15,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
   @override
   void initState() {
     Get.put(HomeController());
@@ -39,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "My Courses",
+                      AppString.myCourse,
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
                     ),
@@ -51,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     stream: firebaseFirestore.collection('courses').snapshots(),
                     builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
                       if (snapshot.hasError) {
-                        return const Center(child: Text('Something went wrong'));
+                        return const Center(child: Text(AppString.somethingWentWrong));
                       }
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const Center(child: CircularProgressIndicator());

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:interactive/core/route/app_route.dart';
 import 'package:interactive/model/user_model.dart';
 import 'package:interactive/utils/app_color.dart';
+import 'package:interactive/utils/app_string.dart';
 
 class AppBarSection extends StatelessWidget {
   AppBarSection({super.key});
@@ -23,15 +24,13 @@ class AppBarSection extends StatelessWidget {
       child: FutureBuilder<DocumentSnapshot>(
         future: firebaseFirestore.collection('users').doc(firebaseAuth.currentUser?.uid??"").get(),
         builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot){
-          print(firebaseAuth.currentUser?.uid);
           if (snapshot.hasError) {
-            return const Center(child: Text('Something went wrong'));
+            return const Center(child: Text(AppString.somethingWentWrong));
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: Text("Loading..."));
           }
           Map<String,dynamic> userData = snapshot.data?.data() as Map<String, dynamic>;
-          print(userData);
           UserModel userModel = UserModel.fromJson(userData);
           return ListTile(
             leading: SizedBox(
@@ -57,9 +56,9 @@ class AppBarSection extends StatelessWidget {
               onTap: () => showDialog(
                 context: context,
                 builder: (BuildContext context) => AlertDialog(
-                  title: const Text('LogOut'),
+                  title: const Text(AppString.logOut),
                   content:
-                  const Text('Are you sure, do you want to logout?'),
+                  const Text(AppString.areYouSureDoYouWantToLogout),
                   actionsAlignment: MainAxisAlignment.spaceBetween,
                   actionsPadding: const EdgeInsets.symmetric(
                       vertical: 10, horizontal: 20),
@@ -68,7 +67,7 @@ class AppBarSection extends StatelessWidget {
                       width: (MediaQuery.of(context).size.width / 3),
                       child: ElevatedButton(
                         onPressed: () => Get.back(),
-                        child: const Text("Cancel"),
+                        child: const Text(AppString.cancel),
                       ),
                     ),
                     SizedBox(
@@ -84,7 +83,7 @@ class AppBarSection extends StatelessWidget {
                             Fluttertoast.showToast(msg: "Error LogOut");
                           }
                         },
-                        child: Text("Logout".tr),
+                        child: const Text(AppString.logOut),
                       ),
                     ),
                   ],

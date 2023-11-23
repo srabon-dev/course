@@ -69,19 +69,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
         hintText: widget.hintText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.green100),
+          borderSide: const BorderSide(color: AppColors.green100),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.red80),
+          borderSide: const BorderSide(color: AppColors.red80),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.green100),
+          borderSide: const BorderSide(color: AppColors.green100),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.green100),
+          borderSide: const BorderSide(color: AppColors.green100),
         ),
         hintStyle: const TextStyle(
             color: AppColors.black20

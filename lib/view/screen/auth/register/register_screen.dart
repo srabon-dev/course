@@ -4,6 +4,7 @@ import 'package:interactive/controller/auth_controller.dart';
 import 'package:interactive/core/route/app_route.dart';
 import 'package:interactive/service/auth_service.dart';
 import 'package:interactive/utils/app_color.dart';
+import 'package:interactive/utils/app_string.dart';
 import 'package:interactive/view/widget/button/custom_button.dart';
 import 'package:interactive/view/widget/text_field/custom_text_field.dart';
 
@@ -44,8 +45,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: AppColors.green100,
                         size: 100,
                       ),
-                      Text(
-                        "Ed Tech",
+                      Text(AppString.appName,
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       const SizedBox(
@@ -53,8 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Name",
+                        child: Text(AppString.name,
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -62,7 +61,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 5,
                       ),
                       CustomTextField(
-                        hintText: "Name",
+                        hintText: AppString.name,
                         keyboardType: TextInputType.name,
                         prefixIcon: const Icon(Icons.person),
                         controller: controller.nameController,
@@ -79,8 +78,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Email",
+                        child: Text(AppString.email,
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -88,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 5,
                       ),
                       CustomTextField(
-                        hintText: "Email",
+                        hintText: AppString.email,
                         prefixIcon: const Icon(Icons.email),
                         keyboardType: TextInputType.emailAddress,
                         controller: controller.emailController,
@@ -107,8 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Phone Number",
+                        child: Text(AppString.phoneNumber,
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -116,7 +113,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 5,
                       ),
                       CustomTextField(
-                        hintText: "Phone Number",
+                        hintText: AppString.phoneNumber,
                         keyboardType: TextInputType.phone,
                         prefixIcon: const Icon(Icons.phone),
                         controller: controller.phoneController,
@@ -140,8 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Password",
+                        child: Text(AppString.password,
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -149,7 +145,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 5,
                       ),
                       CustomTextField(
-                        hintText: "Password",
+                        hintText: AppString.password,
                         keyboardType: TextInputType.text,
                         prefixIcon: const Icon(Icons.lock),
                         controller: controller.passwordController,
@@ -169,8 +165,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Confirm Password",
+                        child: Text(AppString.confirmPassword,
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -178,7 +173,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 5,
                       ),
                       CustomTextField(
-                        hintText: "Confirm Password",
+                        hintText: AppString.confirmPassword,
                         keyboardType: TextInputType.text,
                         prefixIcon: const Icon(Icons.lock),
                         isPassword: true,
@@ -205,7 +200,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         if(formKey.currentState!.validate()){
                           controller.createAccountWithEmailAndPassword();
                         }
-                      }, title: "Create Account",),
+                      }, title: AppString.createAccount,),
                       const SizedBox(
                         height: 24,
                       ),
@@ -216,12 +211,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "Already have an account?",
+                            Text(AppString.alreadyHaveAnAccount,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
-                            Text(
-                                " Login Now",
+                            Text(AppString.loginNow,
                                 style: Theme.of(context).textTheme.titleSmall,
                               ),
                           ],

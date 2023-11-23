@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:interactive/controller/course_controller.dart';
 import 'package:interactive/core/route/app_route.dart';
 import 'package:interactive/model/course_model.dart';
 import 'package:interactive/utils/app_color.dart';
+import 'package:interactive/utils/app_string.dart';
 
 class CourseScreen extends StatefulWidget {
   const CourseScreen({super.key});
@@ -17,13 +19,15 @@ class _CourseScreenState extends State<CourseScreen> {
   @override
   void initState() {
     courseModel = Get.arguments;
+    final controller = Get.put(CourseController());
+    controller.course(id: courseModel.id??"", title: courseModel.courseName??"");
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Course"),
+        title: const Text(AppString.course),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -58,7 +62,7 @@ class _CourseScreenState extends State<CourseScreen> {
                     GestureDetector(
                       onTap: (){
                         ///Navigate Video Player Screen
-                        Get.toNamed(AppRoute.coursePlayerScreen,arguments: courseModel.video?[index]??0);
+                        Get.toNamed(AppRoute.coursePlayerScreen,arguments: [courseModel.video?[index]??0,courseModel.id]);
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 3.0),

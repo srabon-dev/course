@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:interactive/controller/splash_controller.dart';
 import 'package:interactive/service/auth_service.dart';
 import 'package:interactive/utils/app_color.dart';
+import 'package:interactive/utils/app_string.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -36,8 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     color: AppColors.green100,
                     size: 100,
                   ),
-                  Text(
-                    "Ed Tech",
+                  Text(AppString.appName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,

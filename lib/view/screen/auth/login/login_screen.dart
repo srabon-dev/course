@@ -4,6 +4,7 @@ import 'package:interactive/controller/auth_controller.dart';
 import 'package:interactive/core/route/app_route.dart';
 import 'package:interactive/service/auth_service.dart';
 import 'package:interactive/utils/app_color.dart';
+import 'package:interactive/utils/app_string.dart';
 import 'package:interactive/view/widget/button/custom_button.dart';
 import 'package:interactive/view/widget/text_field/custom_text_field.dart';
 
@@ -44,8 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: AppColors.green100,
                           size: 100,
                         ),
-                        Text(
-                          "Ed Tech",
+                        Text(AppString.appName,
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(
@@ -53,8 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Email",
+                          child: Text(AppString.email,
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
@@ -62,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 5,
                         ),
                         CustomTextField(
-                          hintText: "Email",
+                          hintText: AppString.email,
                             controller: controller.loginEmailController,
                             prefixIcon: const Icon(Icons.email),
                             validator: (value) {
@@ -81,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Password",
+                            AppString.password,
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
@@ -89,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 5,
                         ),
                         CustomTextField(
-                          hintText: "Password",
+                          hintText: AppString.password,
                           controller: controller.loginPasswordController,
                           prefixIcon: const Icon(Icons.lock),
                           isPassword: true,
@@ -116,8 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Align(
                             alignment: Alignment.centerRight,
-                            child: Text(
-                              "Forget Password?",
+                            child: Text(AppString.forgetPassword,
                               style: Theme.of(context).textTheme.titleSmall,
                             ),
                           ),
@@ -129,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           if(formKey.currentState!.validate()){
                             controller.signInWithEmailAndPassword();
                           }
-                        }, title: "Login",),
+                        }, title: AppString.login,),
                         const SizedBox(
                           height: 24,
                         ),
@@ -140,12 +138,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                "Don’t have an account?",
+                              Text(AppString.dontHaveAnAccount,
                                 style: Theme.of(context).textTheme.bodySmall,
                               ),
-                              Text(
-                                " Create now",
+                              Text(AppString.createNew,
                                 style: Theme.of(context).textTheme.titleSmall,
                               ),
                             ],

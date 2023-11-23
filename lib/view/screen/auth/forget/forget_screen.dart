@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:interactive/controller/auth_controller.dart';
 import 'package:interactive/service/auth_service.dart';
 import 'package:interactive/utils/app_color.dart';
+import 'package:interactive/utils/app_string.dart';
 import 'package:interactive/view/widget/button/custom_button.dart';
 import 'package:interactive/view/widget/text_field/custom_text_field.dart';
 
@@ -26,7 +27,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Forget Password"),
+        title: const Text(AppString.forgetPassword),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -47,7 +48,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                           size: 100,
                         ),
                         Text(
-                          "Ed Tech",
+                          AppString.appName,
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(
@@ -56,7 +57,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Email",
+                            AppString.email,
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
@@ -64,7 +65,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                           height: 5,
                         ),
                         CustomTextField(
-                          hintText: "Email",
+                          hintText: AppString.email,
                           controller: controller.resetEmailController,
                           prefixIcon: const Icon(Icons.email),
                           validator: (value) {
@@ -80,11 +81,11 @@ class _ForgetScreenState extends State<ForgetScreen> {
                         const SizedBox(
                           height: 24,
                         ),
-                        controller.isResetLoading?Center(child: CircularProgressIndicator(),) : CustomButton(onTap: () {
+                        controller.isResetLoading?const Center(child: CircularProgressIndicator(),) : CustomButton(onTap: () {
                           if(formKey.currentState!.validate()){
                             controller.forgetPassword();
                           }
-                        }, title: "Continue",),
+                        }, title: AppString.continue1,),
                         const SizedBox(
                           height: 24,
                         ),
